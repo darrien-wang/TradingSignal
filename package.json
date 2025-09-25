@@ -1,0 +1,19 @@
+{
+  "name": "trading-signal-scanner",
+  "version": "1.0.0",
+  "description": "4H Trading Signal Scanner for USDT pairs",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "dotenv": "^17.2.2",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  }
+}

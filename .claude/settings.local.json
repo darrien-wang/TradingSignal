@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm search:*)",
+      "Bash(npx @upstash/context7-mcp install:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
