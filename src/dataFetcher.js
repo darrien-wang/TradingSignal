@@ -103,6 +103,19 @@ class DataFetcher {
         return allData.filter(kline => kline.closeTime <= endTime);
     }
 
+    // 获取实时价格
+    async getCurrentPrice(symbol) {
+        try {
+            const response = await axios.get(`${this.baseURL}/ticker/price`, {
+                params: { symbol }
+            });
+            return parseFloat(response.data.price);
+        } catch (error) {
+            console.error(`Failed to get current price for ${symbol}:`, error.message);
+            return null;
+        }
+    }
+
     delay(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
     }

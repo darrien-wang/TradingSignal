@@ -35,10 +35,12 @@ npm start BTCUSDT
 
 ## Signal Criteria
 
-1. **Pivot Low (PL)**: Most recent lowest close price since 2025-08-01 00:00:00 UTC
+1. **Pivot Low (PL)**: Most recent lowest price (Low) since 2025-08-01 00:00:00 UTC
 2. **Pullback High (PH)**: 5-bar pattern where:
    - Left 2 bars: C[i-2] < C[i-1] < C[i] (strictly increasing)
-   - Right 2 bars: C[i+1] < min(C[i], C[i-1], C[i-2]) and C[i+2] < min(C[i+1], C[i], C[i-1], C[i-2])
+   - Right 2 bars: C[i+1] < C[i] and C[i+2] < C[i+1] (consecutive decline)
+   - **Containment Rule**: If C[i+2] ≥ C[i+1], signal still valid if C[i+3] < C[i+1]. Similarly for C[i+4] < C[i+2]. Max extension to C[i+4].
+   - **Lower High Rule**: Current PH must be lower than previous PH (if exists) to confirm downtrend
    - C[i] equals the highest close since PL
 3. **Entry**: Triggered at i+2 close, filtered to last 30 days only
 
